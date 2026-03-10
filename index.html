@@ -40,7 +40,6 @@
     pointer-events:none; z-index:1000; opacity:0.38;
   }
 
-  /* ── PAGE CORNERS ── */
   .pg-corners { position:fixed; inset:18px; pointer-events:none; z-index:2; }
   .c { position:absolute; width:30px; height:30px; border-color:rgba(201,168,76,0.28); border-style:solid; }
   .c.tl{top:0;left:0;border-width:2px 0 0 2px;} .c.tr{top:0;right:0;border-width:2px 2px 0 0;}
@@ -60,16 +59,10 @@
   .pill { font-family:'Cinzel',serif; font-size:10px; letter-spacing:.2em; color:var(--gold-pale); border:1px solid var(--border-glow); padding:6px 16px; background:rgba(201,168,76,.06); }
 
   /* ── SETUP BANNER ── */
-  .setup-banner {
-    display:none; border:1px solid rgba(201,168,76,.48);
-    background:rgba(201,168,76,.055); padding:20px 26px;
-    margin-bottom:34px; position:relative;
-    animation:fadeUp .7s .1s ease both;
-  }
+  .setup-banner { display:none; border:1px solid rgba(201,168,76,.48); background:rgba(201,168,76,.055); padding:20px 26px; margin-bottom:34px; position:relative; animation:fadeUp .7s .1s ease both; }
   .setup-banner.visible { display:block; }
   .setup-banner::before,.setup-banner::after { content:''; position:absolute; width:14px; height:14px; border-color:var(--gold); border-style:solid; }
-  .setup-banner::before{top:-1px;left:-1px;border-width:2px 0 0 2px;}
-  .setup-banner::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;}
+  .setup-banner::before{top:-1px;left:-1px;border-width:2px 0 0 2px;} .setup-banner::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;}
   .setup-banner p { font-size:14px; color:var(--gold-pale); font-style:italic; margin-bottom:13px; line-height:1.65; }
   .setup-banner strong { color:var(--gold-light); font-style:normal; }
   .setup-row { display:flex; gap:10px; flex-wrap:wrap; }
@@ -86,8 +79,7 @@
   /* ── SHARED PANEL ── */
   .panel { border:1px solid var(--border-glow); position:relative; }
   .panel::before,.panel::after { content:''; position:absolute; width:15px; height:15px; border-color:var(--gold); border-style:solid; }
-  .panel::before{top:-1px;left:-1px;border-width:2px 0 0 2px;}
-  .panel::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;}
+  .panel::before{top:-1px;left:-1px;border-width:2px 0 0 2px;} .panel::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;}
   .panel-head { background:linear-gradient(135deg,rgba(201,168,76,.17),rgba(201,168,76,.04)); border-bottom:1px solid var(--border-glow); padding:15px 22px; display:flex; align-items:center; justify-content:space-between; }
   .panel-head-left { display:flex; align-items:center; gap:10px; }
   .panel-head h2 { font-family:'Cinzel',serif; font-size:11px; letter-spacing:.2em; color:var(--gold-light); text-transform:uppercase; }
@@ -107,6 +99,7 @@
   .fi:focus,.fs:focus { border-color:var(--gold); background:rgba(0,0,0,.42); }
   .fi::placeholder { color:var(--text-dim); font-style:italic; }
   .fs option { background:#1a1040; color:var(--cream); }
+
   .sub-btn {
     font-family:'Cinzel',serif; font-size:11px; letter-spacing:.25em;
     text-transform:uppercase; color:var(--deep-navy);
@@ -117,19 +110,34 @@
   .sub-btn:hover { opacity:.9; transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,168,76,.28); }
   .sub-btn:active { transform:translateY(0); }
   .sub-btn:disabled { opacity:.45; cursor:not-allowed; transform:none; box-shadow:none; }
-  .fstatus { font-size:13px; font-style:italic; text-align:center; padding:9px 12px; border:1px solid transparent; display:none; border-radius:0; }
+
+  /* editing mode — subtle gold outline on the form */
+  .form-panel.editing-mode { border-color:var(--gold); }
+  .form-panel.editing-mode .panel-head { background:linear-gradient(135deg,rgba(201,168,76,.28),rgba(201,168,76,.08)); }
+
+  .edit-badge {
+    display:none; font-family:'Cinzel',serif; font-size:9px;
+    letter-spacing:.15em; color:var(--deep-navy);
+    background:var(--gold); padding:3px 9px; text-transform:uppercase;
+  }
+  .editing-mode .edit-badge { display:inline-block; }
+
+  .cancel-btn {
+    font-family:'Cinzel',serif; font-size:10px; letter-spacing:.15em;
+    text-transform:uppercase; color:var(--text-dim);
+    background:transparent; border:1px solid rgba(201,168,76,.25);
+    padding:10px 24px; cursor:pointer; width:100%; transition:all .2s;
+  }
+  .cancel-btn:hover { color:var(--gold-pale); border-color:var(--border-glow); }
+
+  .fstatus { font-size:13px; font-style:italic; text-align:center; padding:9px 12px; border:1px solid transparent; display:none; }
   .fstatus.success { color:var(--success); border-color:rgba(76,175,130,.3); background:rgba(76,175,130,.08); display:block; }
   .fstatus.error   { color:var(--error-col); border-color:rgba(224,92,92,.3); background:rgba(224,92,92,.07); display:block; }
   .fstatus.loading { color:var(--gold-pale); border-color:var(--border-glow); background:rgba(201,168,76,.05); display:block; }
 
   /* ── LIST PANEL ── */
   .list-panel { background:rgba(10,8,22,.45); animation:fadeUp .7s .32s ease both; }
-  .refresh-btn {
-    background:none; border:1px solid var(--border-glow);
-    color:var(--gold); padding:4px 9px; cursor:pointer;
-    font-family:'Cinzel',serif; font-size:9px; letter-spacing:.1em;
-    transition:all .2s; line-height:1.4;
-  }
+  .refresh-btn { background:none; border:1px solid var(--border-glow); color:var(--gold); padding:4px 9px; cursor:pointer; font-family:'Cinzel',serif; font-size:9px; letter-spacing:.1em; transition:all .2s; line-height:1.4; }
   .refresh-btn:hover { background:rgba(201,168,76,.1); border-color:var(--gold); }
   .refresh-btn.spin { animation:spinIt .75s linear infinite; }
   @keyframes spinIt { to{transform:rotate(360deg);} }
@@ -141,12 +149,26 @@
   .cat-head .cn { font-family:'Cinzel',serif; font-size:9px; letter-spacing:.18em; color:var(--gold-pale); text-transform:uppercase; flex:1; }
   .cat-head .cc { font-family:'Cinzel',serif; font-size:9px; color:var(--text-dim); }
 
-  .entry { padding:9px 20px; border-bottom:1px solid rgba(201,168,76,.055); display:flex; gap:10px; animation:slideIn .28s ease both; }
+  .entry { padding:9px 20px; border-bottom:1px solid rgba(201,168,76,.055); display:flex; gap:10px; align-items:center; animation:slideIn .28s ease both; }
   .entry:last-child { border-bottom:none; }
   @keyframes slideIn { from{opacity:0;transform:translateX(-6px);} to{opacity:1;transform:translateX(0);} }
-  .e-dot { width:5px; height:5px; background:var(--gold); border-radius:50%; margin-top:8px; flex-shrink:0; opacity:.5; }
+  .e-dot { width:5px; height:5px; background:var(--gold); border-radius:50%; flex-shrink:0; opacity:.5; }
+  .e-main { flex:1; }
   .e-dish { font-size:15px; color:var(--cream); line-height:1.35; }
   .e-name { font-size:11px; color:var(--text-dim); font-style:italic; margin-top:2px; }
+
+  /* highlight the current user's entry */
+  .entry.mine .e-dot  { background:var(--gold-light); opacity:1; }
+  .entry.mine .e-dish { color:var(--gold-light); }
+  .entry.mine .e-name { color:rgba(232,201,106,0.7); }
+
+  .edit-entry-btn {
+    flex-shrink:0; background:none; border:1px solid rgba(201,168,76,.25);
+    color:var(--gold); padding:4px 9px; cursor:pointer;
+    font-family:'Cinzel',serif; font-size:9px; letter-spacing:.1em;
+    transition:all .2s; white-space:nowrap;
+  }
+  .edit-entry-btn:hover { background:rgba(201,168,76,.1); border-color:var(--gold); }
 
   .empty-cat { padding:11px 20px; font-size:13px; color:var(--text-dim); font-style:italic; }
   .list-msg { padding:30px 20px; text-align:center; font-size:13px; color:var(--text-dim); font-style:italic; letter-spacing:.04em; }
@@ -169,7 +191,6 @@
 
 <div class="page-wrap">
 
-  <!-- HEADER -->
   <header class="header">
     <p class="eyebrow">You're Invited</p>
     <div class="deco-line"><div class="deco-diamond"></div></div>
@@ -182,7 +203,6 @@
     </div>
   </header>
 
-  <!-- SETUP BANNER — only visible until Apps Script URL is saved -->
   <div class="setup-banner" id="setupBanner">
     <p>👋 <strong>Hey Connor</strong> — deploy the Apps Script, then paste the <code style="font-style:normal;font-size:12px;color:var(--gold-light)">/exec</code> URL below to go live. Guests won't see this once it's connected.</p>
     <div class="setup-row">
@@ -191,15 +211,15 @@
     </div>
   </div>
 
-  <!-- MAIN LAYOUT -->
   <div class="layout">
 
     <!-- FORM -->
-    <div class="panel form-panel">
+    <div class="panel form-panel" id="formPanel">
       <div class="panel-head">
         <div class="panel-head-left">
           <span class="p-icon">✍️</span>
-          <h2>Sign Me Up</h2>
+          <h2 id="formTitle">Sign Me Up</h2>
+          <span class="edit-badge" id="editBadge">Editing</span>
         </div>
       </div>
       <div class="form-body">
@@ -222,7 +242,8 @@
           <input class="fi" id="iDish" type="text" placeholder="e.g. Guacamole &amp; chips" maxlength="80" />
         </div>
         <div class="fstatus" id="fStatus"></div>
-        <button class="sub-btn" id="subBtn" onclick="submit()">Count Me In</button>
+        <button class="sub-btn" id="subBtn" onclick="submitEntry()">Count Me In</button>
+        <button class="cancel-btn" id="cancelBtn" style="display:none" onclick="cancelEdit()">Cancel Edit</button>
       </div>
     </div>
 
@@ -240,22 +261,17 @@
       </div>
     </div>
 
-  </div><!-- /layout -->
+  </div>
 
   <footer class="footer">
     <div class="deco-line"><div class="deco-diamond"></div></div>
     <p>Questions? Reach out to Connor.<br><em>Bring your appetite &amp; good company.</em></p>
   </footer>
 
-</div><!-- /page-wrap -->
+</div>
 
 <script>
-  // ─── CONFIG ─────────────────────────────────────────────────────────────────
-  // Connor: paste your Apps Script /exec URL in the setup banner above,
-  // or hardcode it here for a permanent connection:
-  //   const HARDCODED_URL = 'https://script.google.com/macros/s/.../exec';
-  const HARDCODED_URL = 'https://script.google.com/macros/s/AKfycbxd-Zywi3iCCX_71J15rD0UArubb60yc_T749zaB4nO0_uRxN9UuekIB5KjC9Qyy14U/exec';
-
+  const HARDCODED_URL = 'https://script.google.com/macros/s/AKfycbzBQGzuxW14PhdYN6s6V-iFz0LQW4WSpRX84TV9FdcgJK4ib0tbDhxxi6tst7Njxv3z/exec';
   const URL_KEY = 'dp_script_url';
   const CATS = [
     { key:'Appetizer / Snack', icon:'🥗' },
@@ -264,21 +280,22 @@
     { key:'Drinks',            icon:'🍹' },
   ];
 
-  // ─── INIT ────────────────────────────────────────────────────────────────────
-  function getUrl() {
-    return HARDCODED_URL || localStorage.getItem(URL_KEY) || '';
-  }
+  // Track the current user's submitted entry so they can edit it
+  let myEntry = null; // { name, category, dish, originalName }
+  let isEditing = false;
+
+  // ── URL helpers ──────────────────────────────────────────────────────────────
+  function getUrl() { return HARDCODED_URL || localStorage.getItem(URL_KEY) || ''; }
 
   function saveUrl() {
     const v = document.getElementById('scriptIn').value.trim();
-    if (!v.startsWith('https://script.google.com')) {
-      alert('Please enter a valid Google Apps Script /exec URL.'); return;
-    }
+    if (!v.startsWith('https://script.google.com')) { alert('Please enter a valid Apps Script URL.'); return; }
     localStorage.setItem(URL_KEY, v);
     document.getElementById('setupBanner').classList.remove('visible');
     loadList();
   }
 
+  // ── Init ─────────────────────────────────────────────────────────────────────
   function init() {
     if (!getUrl()) {
       document.getElementById('setupBanner').classList.add('visible');
@@ -288,33 +305,29 @@
     }
   }
 
-  // ─── LOAD LIST ───────────────────────────────────────────────────────────────
+  // ── Load list ────────────────────────────────────────────────────────────────
   async function loadList() {
     const url = getUrl();
     const btn = document.getElementById('refreshBtn');
     btn.classList.add('spin');
-
     if (!url) { renderList([]); btn.classList.remove('spin'); return; }
-
     try {
-      const r = await fetch(url + '?action=get', { cache: 'no-store' });
+      const r = await fetch(url + '?action=get', { cache:'no-store' });
       const d = await r.json();
       renderList(d.entries || []);
     } catch(e) {
-      document.getElementById('listBody').innerHTML =
-        '<div class="list-err">Couldn\'t reach the backend — try refreshing.</div>';
+      document.getElementById('listBody').innerHTML = '<div class="list-err">Couldn\'t reach the backend — try refreshing.</div>';
     }
     btn.classList.remove('spin');
   }
 
-  // ─── RENDER LIST ─────────────────────────────────────────────────────────────
+  // ── Render list ──────────────────────────────────────────────────────────────
   function renderList(entries) {
     const body = document.getElementById('listBody');
     if (!getUrl() || !entries.length) {
       body.innerHTML = '<div class="list-msg">No one\'s signed up yet — be the first! 🎉</div>';
       return;
     }
-
     let html = '';
     CATS.forEach(cat => {
       const rows = entries.filter(e => e.category === cat.key);
@@ -328,12 +341,14 @@
         html += '<div class="empty-cat">— open —</div>';
       } else {
         rows.forEach(e => {
-          html += `<div class="entry">
+          const isMine = myEntry && e.name === myEntry.name && e.dish === myEntry.dish && e.category === myEntry.category;
+          html += `<div class="entry${isMine?' mine':''}">
             <div class="e-dot"></div>
-            <div>
+            <div class="e-main">
               <div class="e-dish">${x(e.dish)}</div>
               <div class="e-name">— ${x(e.name)}</div>
             </div>
+            ${isMine ? `<button class="edit-entry-btn" onclick="startEdit()">✎ Edit</button>` : ''}
           </div>`;
         });
       }
@@ -342,8 +357,8 @@
     body.innerHTML = html;
   }
 
-  // ─── SUBMIT ──────────────────────────────────────────────────────────────────
-  async function submit() {
+  // ── Submit ───────────────────────────────────────────────────────────────────
+  async function submitEntry() {
     const url  = getUrl();
     const name = document.getElementById('iName').value.trim();
     const cat  = document.getElementById('iCat').value;
@@ -356,27 +371,72 @@
     if (!url)  { st('error','Site not connected yet — ask Connor!'); return; }
 
     btn.disabled = true;
-    st('loading','Saving your spot...');
+    st('loading', isEditing ? 'Updating your entry...' : 'Saving your spot...');
 
     try {
-      const p = new URLSearchParams({ action:'add', name, category:cat, dish });
+      const action = isEditing ? 'update' : 'add';
+      const originalName = isEditing ? myEntry.originalName : '';
+      const p = new URLSearchParams({ action, name, category:cat, dish, originalName });
       const r = await fetch(`${url}?${p}`, { cache:'no-store' });
       const d = await r.json();
+
       if (d.status === 'ok') {
-        st('success', `You're in, ${x(name)}! See you Wednesday 🎉`);
-        document.getElementById('iName').value = '';
-        document.getElementById('iCat').value  = '';
-        document.getElementById('iDish').value = '';
+        // Save this user's entry so we can highlight + show edit btn
+        myEntry = { name, category:cat, dish, originalName: name };
+        isEditing = false;
+        exitEditMode();
+        st('success', isEditing ? `Updated! See you Wednesday 🎉` : `You're in, ${x(name)}! See you Wednesday 🎉`);
         loadList();
       } else {
         st('error', d.message || 'Something went wrong — try again!');
       }
     } catch(e) {
-      st('error', 'Network error — please try again.');
+      st('error','Network error — please try again.');
     }
     btn.disabled = false;
   }
 
+  // ── Edit flow ────────────────────────────────────────────────────────────────
+  function startEdit() {
+    if (!myEntry) return;
+    isEditing = true;
+
+    // Pre-fill the form
+    document.getElementById('iName').value = myEntry.name;
+    document.getElementById('iCat').value  = myEntry.category;
+    document.getElementById('iDish').value = myEntry.dish;
+
+    // Switch UI to editing mode
+    document.getElementById('formPanel').classList.add('editing-mode');
+    document.getElementById('formTitle').textContent = 'Edit My Entry';
+    document.getElementById('subBtn').textContent = 'Save Changes';
+    document.getElementById('cancelBtn').style.display = 'block';
+    document.getElementById('fStatus').className = 'fstatus';
+
+    // Scroll form into view on mobile
+    document.getElementById('formPanel').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  function cancelEdit() {
+    isEditing = false;
+    exitEditMode();
+    // Restore form to original submitted values
+    if (myEntry) {
+      document.getElementById('iName').value = myEntry.name;
+      document.getElementById('iCat').value  = myEntry.category;
+      document.getElementById('iDish').value = myEntry.dish;
+    }
+    st('success', 'Edit cancelled — your original entry is still saved.');
+  }
+
+  function exitEditMode() {
+    document.getElementById('formPanel').classList.remove('editing-mode');
+    document.getElementById('formTitle').textContent = 'Sign Me Up';
+    document.getElementById('subBtn').textContent = 'Count Me In';
+    document.getElementById('cancelBtn').style.display = 'none';
+  }
+
+  // ── Helpers ──────────────────────────────────────────────────────────────────
   function st(type, msg) {
     const el = document.getElementById('fStatus');
     el.className = 'fstatus ' + type;
@@ -387,9 +447,7 @@
     return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
-  // Auto-refresh every 30 seconds
   setInterval(loadList, 30000);
-
   init();
 </script>
 </body>
